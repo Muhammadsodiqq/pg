@@ -1,0 +1,5 @@
+
+
+SELECT NOW();
+
+SELECT EXTRACT (YEAR FROM NOW()) - 2004 as year;
