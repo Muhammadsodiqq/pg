@@ -1,6 +1,9 @@
 const router = require('express').Router();
-const {GET} = require('./controller.js');
+const {GET,POST} = require('./controller.js');
 
-router.route('/expense').get(GET);
+router.route('/expense')
+.get(GET)
+.post(POST)
+
 
 module.exports = router
