@@ -1,5 +1,5 @@
 const GET = (req,res) => {
-    res.render("index.html");
+    res.redirect("/expense");
 };
 
 module.exports = {GET};
