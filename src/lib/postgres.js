@@ -15,6 +15,7 @@ const fetch = async (query, ...params) => {
         client.release()
     }
 }
+
 const fetchAll = async (query, ...params) => {
     const client =await pool.connect()
     try{

@@ -6,7 +6,8 @@ const EXPENSES = `
     expense_name,
     expense_cost,
     TO_CHAR(expense_date,'yyyy-MM-dd') as expense_date
-    FROM expense
+    FROM expense ORDER BY
+	expense_id desc
 `
 
 const INSERT_EXPENSE = `
@@ -16,6 +17,10 @@ const INSERT_EXPENSE = `
     ) VALUES ($1,$2)
     RETURNING *
 `
+const DELTE_EXPENSE = `
+        DELETE FROM expense
+        where expense_id = $1
+`
 const getExpenses = () => fetchAll(EXPENSES);
 
 const insertExpense =async ({purpose,summa}) => {
@@ -23,7 +28,10 @@ const insertExpense =async ({purpose,summa}) => {
    return newExpense;
 }
 
+const deleteExpense = ({expense_id}) => {fetch(DELTE_EXPENSE,expense_id)}
+
 module.exports = {
     getExpenses,
-    insertExpense
+    insertExpense,
+    deleteExpense
 }
